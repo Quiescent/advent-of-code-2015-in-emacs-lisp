@@ -12,25 +12,25 @@
 (defun day1-loop-part-1 (input-file)
   "Run my solution to part one of the problem on the input in INPUT-FILE."
   (cl-loop with floor = 0
-           for bracket across input-file
-           if (eq bracket ?\()
-           do (cl-incf floor)
-           else
-           do (cl-decf floor)
-           finally return floor))
+     for bracket across input-file
+     if (eq bracket ?\()
+       do (cl-incf floor)
+     else
+       do (cl-decf floor)
+     finally return floor))
 
 ;; # PART 2:
 
 (defun day1-loop-part-2 (input-file)
   "Run my solution to part two of the problem on the input in INPUT-FILE."
   (cl-loop with floor = 0
-           for bracket being the elements of input-file using (index i)
-           if (eq bracket ?\()
-           do (cl-incf floor)
-           else
-           do (cl-decf floor)
-           until (eq floor -1)
-           finally return (1+ i)))
+     for bracket being the elements of input-file using (index i)
+     if (eq bracket ?\()
+       do (cl-incf floor)
+     else
+       do (cl-decf floor)
+     until (eq floor -1)
+     finally return (1+ i)))
 
 ;; Run the solution:
 

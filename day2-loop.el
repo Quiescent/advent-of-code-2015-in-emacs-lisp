@@ -11,23 +11,25 @@
 
 (defun day2-loop-part-1 (input-file)
   "Run my solution to part one of the problem on the input in INPUT-FILE."
-  (cl-loop for line in (split-string input-file "\n" t " ")
-           for (length width height) = (mapcar #'string-to-number (split-string line "x" t " "))
-           for (x      y     z)      = (sort `(,length ,width ,height) #'<)
-           sum (+ (* 2 length width)
-                  (* 2 width height)
-                  (* 2 height length)
-                  (* x y))))
+  (cl-loop
+     for line in (split-string input-file "\n" t " ")
+     for (length width height) = (mapcar #'string-to-number (split-string line "x" t " "))
+     for (x      y     z)      = (sort `(,length ,width ,height) #'<)
+     sum (+ (* 2 length width)
+            (* 2 width height)
+            (* 2 height length)
+            (* x y))))
 
 ;; # PART 2:
 
 (defun day2-loop-part-2 (input-file)
   "Run my solution to part two of the problem on the input in INPUT-FILE."
-  (cl-loop for line in (split-string input-file "\n" t " ")
-           for (length width height) = (mapcar #'string-to-number (split-string line "x" t " "))
-           for (x      y     z)      = (sort `(,length ,width ,height) #'<)
-           sum (+ (* 2 x) (* 2 y)
-                  (* length width height))))
+  (cl-loop
+     for line in (split-string input-file "\n" t " ")
+     for (length width height) = (mapcar #'string-to-number (split-string line "x" t " "))
+     for (x      y     z)      = (sort `(,length ,width ,height) #'<)
+     sum (+ (* 2 x) (* 2 y)
+                    (* length width height))))
 
 ;; Run the solution:
 
